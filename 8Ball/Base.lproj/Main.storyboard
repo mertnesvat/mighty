@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,89 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_Ball" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmF-5k-ZpM" customClass="FBShimmeringView">
+                                <rect key="frame" x="133.5" y="61" width="108" height="61"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 Ball" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaO-GF-Ngy">
+                                        <rect key="frame" x="0.0" y="0.0" width="108" height="61"/>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Heavy" family="Avenir Next Condensed" pointSize="44"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="NaO-GF-Ngy" firstAttribute="centerY" secondItem="gmF-5k-ZpM" secondAttribute="centerY" id="8PG-ma-cNb"/>
+                                    <constraint firstAttribute="width" secondItem="NaO-GF-Ngy" secondAttribute="width" id="LLy-yk-XDj"/>
+                                    <constraint firstItem="NaO-GF-Ngy" firstAttribute="centerX" secondItem="gmF-5k-ZpM" secondAttribute="centerX" id="R4K-km-E3p"/>
+                                    <constraint firstAttribute="height" secondItem="NaO-GF-Ngy" secondAttribute="height" id="SZK-3W-Mwr"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oval" translatesAutoresizingMaskIntoConstraints="NO" id="DMx-dz-l7w">
+                                <rect key="frame" x="37.5" y="193.5" width="300" height="300"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DMx-dz-l7w" secondAttribute="height" multiplier="1:1" id="LHO-N0-MNL"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NiI-NX-4jG">
+                                <rect key="frame" x="37.5" y="193.5" width="300" height="300"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NiI-NX-4jG" secondAttribute="height" multiplier="1:1" id="N0z-io-jzF"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Better Luck Next Time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ei6-aO-rFD">
+                                <rect key="frame" x="83" y="325" width="209.5" height="37"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="NiI-NX-4jG" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="3Zx-fD-nhv"/>
+                            <constraint firstItem="DMx-dz-l7w" firstAttribute="width" secondItem="NiI-NX-4jG" secondAttribute="width" id="6g0-TM-VKR"/>
+                            <constraint firstItem="gmF-5k-ZpM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="41" id="Igx-XG-LCy"/>
+                            <constraint firstItem="ei6-aO-rFD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="L6E-Qc-XDT"/>
+                            <constraint firstItem="NiI-NX-4jG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="RyU-pM-2qT"/>
+                            <constraint firstItem="ei6-aO-rFD" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="UjU-Iy-Rp8"/>
+                            <constraint firstItem="DMx-dz-l7w" firstAttribute="centerY" secondItem="NiI-NX-4jG" secondAttribute="centerY" id="V55-EV-KWV"/>
+                            <constraint firstItem="gmF-5k-ZpM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cm6-9Q-n2q"/>
+                            <constraint firstItem="NiI-NX-4jG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ee7-3t-jAR"/>
+                            <constraint firstItem="DMx-dz-l7w" firstAttribute="centerX" secondItem="NiI-NX-4jG" secondAttribute="centerX" id="wV7-ev-MHT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="KBt-Hm-KS9" appends="YES" id="SVN-ZG-L2f"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="imageVBall" destination="DMx-dz-l7w" id="fGv-id-y50"/>
+                        <outlet property="lblAnswer" destination="ei6-aO-rFD" id="Ykt-nx-Mi7"/>
+                        <outlet property="lblEightBall" destination="NaO-GF-Ngy" id="aCa-UQ-Trf"/>
+                        <outlet property="vBallImageWidth" destination="6g0-TM-VKR" id="pKd-Yf-5Y4"/>
+                        <outlet property="vLottieContainer" destination="NiI-NX-4jG" id="2zu-GY-2B1"/>
+                        <outlet property="vShimmering" destination="gmF-5k-ZpM" id="MCX-Oc-IrN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="KBt-Hm-KS9">
+                    <connections>
+                        <action selector="clicked:" destination="BYZ-38-t0r" id="bgK-Jm-y4B"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="56.799999999999997" y="38.23088455772114"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="oval" width="266" height="266"/>
+    </resources>
 </document>
