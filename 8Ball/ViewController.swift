@@ -7,13 +7,14 @@
 //
 
 import UIKit
-import Shimmer
 import Lottie
+import Shimmer
 
-class ViewController: UIViewController{
+class ViewController: UIViewController, UITextFieldDelegate, SocialShare{
     
     var vBall: LOTAnimationView!
     
+    @IBOutlet weak var txWish: UITextField!
     @IBOutlet weak var vBallImageWidth: NSLayoutConstraint!
     @IBOutlet weak var imageVBall: UIImageView!
     @IBOutlet weak var vLottieContainer: UIView!
@@ -44,13 +45,57 @@ class ViewController: UIViewController{
         
     }
     
+    @IBAction func txWishChanged(_ sender: UITextField) {
+        guard let a = sender.text else {
+            return
+        }
+        
+        if a.count > 40 {
+            let substr = sender.text?.prefix(40)
+            sender.text = String(substr!)
+        }
+    }
+    
     func randomAnswer() -> String {
         let rd = Int.random(in: 0 ..< self.possibleAnswers!.count)
         return self.possibleAnswers![rd] as! String
     }
+    
+    func instagramBackgroundImage(image: NSData, attributionURL: NSString) {
+        
+        let urlScheme = NSURL.init(string: "instagram-stories://share")
+        
+        if UIApplication.shared.canOpenURL(urlScheme!.absoluteURL!) {
+            
+            let pasteboardItems : [[String: Any]] = [["com.instagram.sharedSticker.backgroundImage": image, "com.instagram.sharedSticker.contentURL": attributionURL]]
+            let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate : NSDate.init().addingTimeInterval(60 * 5)]
+            
+            UIPasteboard.general.setItems(pasteboardItems, options: pasteboardOptions)
+            
+            UIApplication.shared.open(urlScheme! as! URL, options:[:]) { (result) in
+                print("result = ()")
+                
+            }
+            
+        }
+    }
+    @IBAction func btnInstagramShareClicked(_ sender: Any) {
+        let img = self.view.toImage()
+        
+        let imgData = img.pngData()! as! NSData
+        
+        self.instagramBackgroundImage(image: imgData, attributionURL: "")
 
+    }
+    
     @IBAction func clicked(_ sender: Any) {
         
+        guard txWish.text!.count > 0 else {
+            self.txWish.becomeFirstResponder()
+            return
+        }
+
+        _ = self.textFieldShouldReturn(txWish)
         self.vShimmering.isShimmering = true
         self.vBall.alpha = 1
         self.vBall.animationProgress = 0;
@@ -84,5 +129,22 @@ class ViewController: UIViewController{
         self.vBall.frame = rectLottie
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+extension UIView {
+    func toImage() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        
+        return image!
+    }
 }
 

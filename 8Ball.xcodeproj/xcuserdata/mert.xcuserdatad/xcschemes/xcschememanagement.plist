@@ -7,7 +7,7 @@
 		<key>8Ball.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>5</integer>
 		</dict>
 		<key>watch (Notification).xcscheme</key>
 		<dict>
@@ -17,7 +17,7 @@
 		<key>watch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>6</integer>
 		</dict>
 	</dict>
 </dict>

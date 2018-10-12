@@ -55,19 +55,48 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Tap  here to let me show you the path!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K7w-0s-Hhx">
+                                <rect key="frame" x="37.5" y="141" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="eRo-ni-lnn"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-UltraLight" family="Avenir Next Condensed" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="txWishChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="I0E-Bn-oss"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="nOG-Tb-2U4"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XlK-lL-CqW">
+                                <rect key="frame" x="167.5" y="585" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="86s-74-q0S"/>
+                                    <constraint firstAttribute="width" constant="40" id="OOr-R7-83e"/>
+                                </constraints>
+                                <state key="normal" image="instagramShare"/>
+                                <connections>
+                                    <action selector="btnInstagramShareClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fHv-WG-YVz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="K7w-0s-Hhx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="15l-1d-CYP"/>
                             <constraint firstItem="NiI-NX-4jG" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="3Zx-fD-nhv"/>
                             <constraint firstItem="DMx-dz-l7w" firstAttribute="width" secondItem="NiI-NX-4jG" secondAttribute="width" id="6g0-TM-VKR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XlK-lL-CqW" secondAttribute="bottom" constant="42" id="CZJ-7G-fGE"/>
                             <constraint firstItem="gmF-5k-ZpM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="41" id="Igx-XG-LCy"/>
                             <constraint firstItem="ei6-aO-rFD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="L6E-Qc-XDT"/>
+                            <constraint firstItem="XlK-lL-CqW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="LzC-2M-Sb5"/>
                             <constraint firstItem="NiI-NX-4jG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="RyU-pM-2qT"/>
+                            <constraint firstItem="K7w-0s-Hhx" firstAttribute="top" secondItem="NaO-GF-Ngy" secondAttribute="bottom" constant="19" id="TIS-KY-rU1"/>
                             <constraint firstItem="ei6-aO-rFD" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="UjU-Iy-Rp8"/>
                             <constraint firstItem="DMx-dz-l7w" firstAttribute="centerY" secondItem="NiI-NX-4jG" secondAttribute="centerY" id="V55-EV-KWV"/>
                             <constraint firstItem="gmF-5k-ZpM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cm6-9Q-n2q"/>
                             <constraint firstItem="NiI-NX-4jG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ee7-3t-jAR"/>
+                            <constraint firstItem="K7w-0s-Hhx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="miO-Bh-MLG"/>
                             <constraint firstItem="DMx-dz-l7w" firstAttribute="centerX" secondItem="NiI-NX-4jG" secondAttribute="centerX" id="wV7-ev-MHT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -79,6 +108,7 @@
                         <outlet property="imageVBall" destination="DMx-dz-l7w" id="fGv-id-y50"/>
                         <outlet property="lblAnswer" destination="ei6-aO-rFD" id="Ykt-nx-Mi7"/>
                         <outlet property="lblEightBall" destination="NaO-GF-Ngy" id="aCa-UQ-Trf"/>
+                        <outlet property="txWish" destination="K7w-0s-Hhx" id="GNR-eM-L2s"/>
                         <outlet property="vBallImageWidth" destination="6g0-TM-VKR" id="pKd-Yf-5Y4"/>
                         <outlet property="vLottieContainer" destination="NiI-NX-4jG" id="2zu-GY-2B1"/>
                         <outlet property="vShimmering" destination="gmF-5k-ZpM" id="MCX-Oc-IrN"/>
@@ -95,6 +125,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="instagramShare" width="48" height="49"/>
         <image name="oval" width="266" height="266"/>
     </resources>
 </document>
